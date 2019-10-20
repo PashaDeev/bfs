@@ -44,7 +44,7 @@ const dfs = tree => {
   queue.push(...children);
 
   while (queue.length) {
-    const child = queue.shift();
+    const child = queue.pop();
     console.log(`-------------------------`);
     console.log(`name in`, child.name);
     console.log(`-------------------------`);
