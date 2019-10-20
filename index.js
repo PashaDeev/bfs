@@ -23,34 +23,31 @@ const tree = {
 const LEFT = "left";
 const RIGHT = "right";
 
-const getChildren = ({ left, right }) => {
-  const chd = [];
-  if (left) {
-    chd.push(left);
-  }
-
-  if (right) {
-    chd.push(right);
-  }
-
-  return chd;
-};
 
 const dfs = tree => {
   const queue = [];
 
-  const children = getChildren(tree);
+  console.log('name in', tree.name)
 
-  queue.push(...children);
+  if (tree.left) {
+    queue.push(tree.left);
+  }
+  if (tree.right) {
+    queue.push(tree.right);
+  }
 
   while (queue.length) {
-    const child = queue.pop();
+    const child = queue.shift();
     console.log(`-------------------------`);
     console.log(`name in`, child.name);
     console.log(`-------------------------`);
 
-    const newChildren = getChildren(child);
-    queue.push(...newChildren)
+    if (child.left) {
+      queue.push(child.left);
+    }
+    if (child.right) {
+      queue.push(child.right);
+    }
   }
 };
 
